@@ -1,3 +1,7 @@
+variables:
+  IMAGE_NAME: "myapp"
+  PORT: "5173"
+
 stages:
   - test
   - build_image
@@ -13,11 +17,13 @@ build_image_job:
   stage: build_image
   script:
     - echo "Building docker image"
+    - docker build -t ${IMAGE_NAME}:$CI_COMMIT_REF_NAME .
 
 test_image_job:
   stage: test_image
   script:
     - echo "Running docker image to test"
+    - docker run -p ${PORT}:${PORT} ${IMAGE_NAME}:$CI_COMMIT_REF_NAME --name ${IMAGE_NAME}_CICD
 
 deploy_job:
   stage: deploy
