@@ -1,15 +1,21 @@
 stages:
-  - build
   - test
+  - build_image
+  - test_image
   - deploy
-
-build_job:
-  stage: build
-  script:
-    - echo "Building docker image"
 
 test_job:
   stage: test
+  script:
+    - echo "Running unit test"
+
+build_image_job:
+  stage: build_image
+  script:
+    - echo "Building docker image"
+
+test_image_job:
+  stage: test_image
   script:
     - echo "Running docker image to test"
 
