@@ -1,0 +1,6 @@
+# react folders
+node_modules
+public
+
+# exclude env file
+.env
