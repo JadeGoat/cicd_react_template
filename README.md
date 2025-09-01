@@ -1,4 +1,5 @@
 # CICD Template
 
 # Setup
-Some description
+1. Clone repo
+   command: git clone <url>
