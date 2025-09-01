@@ -2,5 +2,9 @@
 node_modules
 public
 
+# test folders
+logs
+test
+
 # exclude env file
 .env
