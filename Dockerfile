@@ -8,10 +8,7 @@ COPY package-lock.json ./
 # Install dependencies
 RUN npm install
 # Copy the rest of the files to working directory 
-COPY ./src ./src
-COPY ./public ./public
-COPY ./index.html ./
-COPY ./vite.config.js ./
+COPY . .
 # Expose port that container listens on
 EXPOSE 5173
 # Start the application

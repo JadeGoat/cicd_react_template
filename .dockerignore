@@ -6,6 +6,7 @@ logs/
 test/
 
 # exclude unnecessary file
+Dockerfile
 eslint.config.js
 README.md
 
