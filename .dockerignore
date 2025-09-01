@@ -1,10 +1,13 @@
 # react folders
-node_modules
-public
+node_modules/
 
 # test folders
-logs
-test
+logs/
+test/
+
+# exclude unnecessary file
+eslint.config.js
+README.md
 
 # exclude env file
 .env
