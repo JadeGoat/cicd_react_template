@@ -17,7 +17,7 @@ build_image_job:
   stage: build_image
   script:
     - echo "Building docker image"
-    - docker build -t ${IMAGE_NAME}:$CI_COMMIT_REF_NAME .
+    - docker build -t ${IMAGE_NAME}:$CI_COMMIT_REF_NAME -t ${IMAGE_NAME}:latest .
 
 test_image_job:
   stage: test_image
