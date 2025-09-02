@@ -1,5 +1,5 @@
 variables:
-  REACT_FILE: "Dockerfile_React"
+  DOCKERFILE: "Dockerfile_React"
   IMAGE_NAME: "myapp"
   PORT: "5173"
 
@@ -18,7 +18,7 @@ build_image_job:
   stage: build_react_image
   script:
     - echo "Building docker image"
-    - docker build -t ${IMAGE_NAME}:$CI_COMMIT_REF_NAME -t ${IMAGE_NAME}:latest -f ${REACT_FILE}
+    - docker build -t ${IMAGE_NAME}:$CI_COMMIT_REF_NAME -t ${IMAGE_NAME}:latest -f ${DOCKERFILE}
 
 test_image_job:
   stage: test_react_image
