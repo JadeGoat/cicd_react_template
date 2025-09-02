@@ -1,31 +1,32 @@
 variables:
+  REACT_FILE: "Dockerfile_React"
   IMAGE_NAME: "myapp"
   PORT: "5173"
 
 stages:
-  - test
-  - build_image
-  - test_image
-  - deploy
+  - test_react
+  - build_react_image
+  - test_react_image
+  - deploy_react
 
 test_job:
-  stage: test
+  stage: test_react
   script:
     - echo "Running unit test"
 
 build_image_job:
-  stage: build_image
+  stage: build_react_image
   script:
     - echo "Building docker image"
-    - docker build -t ${IMAGE_NAME}:$CI_COMMIT_REF_NAME -t ${IMAGE_NAME}:latest .
+    - docker build -t ${IMAGE_NAME}:$CI_COMMIT_REF_NAME -t ${IMAGE_NAME}:latest -f ${REACT_FILE}
 
 test_image_job:
-  stage: test_image
+  stage: test_react_image
   script:
     - echo "Running docker image to test"
     - docker run -p ${PORT}:${PORT} ${IMAGE_NAME}:$CI_COMMIT_REF_NAME --name ${IMAGE_NAME}_CICD
 
 deploy_job:
-  stage: deploy
+  stage: deploy_react
   script:
     - echo "Deploying application"
