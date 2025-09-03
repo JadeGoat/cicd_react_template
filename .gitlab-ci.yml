@@ -1,7 +1,8 @@
 variables:
   DOCKERFILE: "Dockerfile_React"
   IMAGE_NAME: "myapp"
-  PORT: "5173"
+  PORT: "80"
+  HOST_PORT: "8088"
 
 stages:
   - test_react
@@ -24,7 +25,7 @@ test_image_job:
   stage: test_react_image
   script:
     - echo "Running docker image to test"
-    - docker run -p ${PORT}:${PORT} ${IMAGE_NAME}:$CI_COMMIT_REF_NAME --name ${IMAGE_NAME}_CICD
+    - docker run -p ${HOST_PORT}:${PORT} ${IMAGE_NAME}:$CI_COMMIT_REF_NAME --name ${IMAGE_NAME}_CICD
 
 deploy_job:
   stage: deploy_react
