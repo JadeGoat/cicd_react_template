@@ -7,6 +7,7 @@ test/
 
 # exclude unnecessary file
 Dockerfile
+Dockerfile_React
 eslint.config.js
 README.md
 
